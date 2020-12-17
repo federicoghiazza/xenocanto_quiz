@@ -12,7 +12,10 @@ server <- function(input, output) {
     type = input$type
     
     df = NULL
-    show_modal_spinner()
+    show_modal_spinner(
+      spin = 'fingerprint',
+      text = 'Please wait...'
+    )
     for (i in which(families$family == selected_family)) {
       genus=families$genus[i]
       specie=families$specie[i]
@@ -63,10 +66,16 @@ server <- function(input, output) {
     selected_specie = input$specie_learn
     type_learn = input$type_learn
     
+    show_modal_spinner(
+      spin = 'trinity-rings',
+      text = 'Please wait...'
+    )
     genus=families$genus[which(families$nome == selected_specie)]
     specie=families$specie[which(families$nome == selected_specie)]
     call = GET(paste0("https://www.xeno-canto.org/api/2/recordings?query=", genus, "+", specie))
     df_learn = data.frame(fromJSON(rawToChar(call$content)))
+    remove_modal_spinner()
+    
 
     df_learn = df_learn %>% 
       rowwise() %>% 

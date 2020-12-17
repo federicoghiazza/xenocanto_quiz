@@ -67,7 +67,7 @@ ui = function() {
                      ),
                      
                      mainPanel(
-                       textOutput("ready_learn"),
+                       span(textOutput("ready_learn"), style="color:red; font-size: 30px"),
                        span(textOutput("solution_learn"), style="color:blue; font-size: 20px")
                      )
                    ),
