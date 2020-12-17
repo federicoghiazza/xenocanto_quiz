@@ -54,8 +54,8 @@ creepers,Rampichino comune,Certhia,brachydactyla
 creepers,Rampichino alpestre,Certhia,familiaris
 creepers,Torcicollo,Jynx,torquilla
 shrikes,Averla piccola,Lanius,collurio
-shrikes,Averla maggiore,Lanius,excubitur
-shrikes,Averla capirossa,Lanius,senatur
+shrikes,Averla maggiore,Lanius,excubitor
+shrikes,Averla capirossa,Lanius,senator
 shrikes,Averla cenerina,Lanius,minor
 crowsSmall,Gazza,pica,pica
 crowsSmall,Ghiandaia,Garrulus,glandarius
@@ -102,6 +102,7 @@ accentors,Upupa,Upupa,epops
 accentors,Gruccione,Merops,apiaster
 accentors,Ghiandaia marina,Coracias,garrulus 
 pipits,Calandro,Anthus,campestris
+pipits,Calandro maggiore,Anthus,richardi
 pipits,Spioncello,Anthus,spinoletta
 pipits,Pispola,Anthus,pratensis
 pipits,Prispolone,Anthus,trivialis
@@ -116,3 +117,11 @@ larks,Allodola,Alauda,arvensis
 larks,Tottavilla,Lullula,arborea
 larks,Cappellaccia,Galerida,cristata
 larks,Calandrella,Calandrella,brachydactyla
+rapaci_notturni,Civetta,Athene,noctua
+rapaci_notturni,Civetta nana,Glaucidium,passerinum
+rapaci_notturni,Civetta capogrosso,Aegolius,funereus
+rapaci_notturni,Allocco,Strix,aluco
+rapaci_notturni,Gufo comune,Asio,otus
+rapaci_notturni,Gufo reale,Bubo,bubo
+rapaci_notturni,Barbagianni,Tyto,alba
+rapaci_notturni,Gufo di palude,Asio,flammeus

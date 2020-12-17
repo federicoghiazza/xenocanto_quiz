@@ -2,6 +2,10 @@ ui = function() {
   return (
     fluidPage(
       
+      setBackgroundImage(
+        src = "http://pngimg.com/uploads/birds/birds_PNG71.png"
+      ),
+      
       fluidRow(
         tabsetPanel( id = 'ciao',
           tabPanel("Guess the bird", 
@@ -29,7 +33,8 @@ ui = function() {
                                      "Zigoli" = "buntings",
                                      "Altri" = "accentors",
                                      "Pispole e ballerine" = "pipits",
-                                     "Rondini e topino" = "swallows"
+                                     "Rondini e topino" = "swallows",
+                                     "Rapaci notturni" = "rapaci_notturni"
                                    )),
                        selectInput("type", label = h3("Sound type"),
                                    c("Song" = 1,
@@ -39,15 +44,15 @@ ui = function() {
                      ),
                      
                      mainPanel(
-                       tableOutput("table")
+                       tableOutput("table"),
+                       span(textOutput("solution"), style="color:blue; font-size: 20px")
                      )
                    ),
                    
                    mainPanel(
                      uiOutput("audio"),
                      actionButton("nxt", "Next"),
-                     actionButton('shw', 'Show'),
-                     textOutput("solution")
+                     actionButton('shw', 'Show')
                    )),
           
           tabPanel("Learn 1 bird",
@@ -62,16 +67,15 @@ ui = function() {
                      ),
                      
                      mainPanel(
-                       textOutput("ready_learn")
+                       textOutput("ready_learn"),
+                       span(textOutput("solution_learn"), style="color:blue; font-size: 20px")
                      )
                    ),
                    
                    mainPanel(
                      uiOutput("audio_learn"),
                      actionButton("nxt_learn", "Next"),
-                     actionButton('shw_learn', 'Show'),
-                     textOutput("solution_learn")
-                   )
+                     actionButton('shw_learn', 'Show')                   )
                    )
         )
       )

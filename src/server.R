@@ -12,6 +12,7 @@ server <- function(input, output) {
     type = input$type
     
     df = NULL
+    show_modal_spinner()
     for (i in which(families$family == selected_family)) {
       genus=families$genus[i]
       specie=families$specie[i]
@@ -19,6 +20,7 @@ server <- function(input, output) {
       dd = data.frame(fromJSON(rawToChar(call$content)))
       df = rbind(df, dd[1:100,c(6,7,11,16,18)])
     }
+    remove_modal_spinner()
     
     df = df %>% 
       rowwise() %>% 
