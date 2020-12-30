@@ -3,7 +3,6 @@ picchi,Picchio cenerino,Picus,canus
 picchi,Picchio verde,Picus,viridis
 picchi,Picchio rosso maggiore,Dendrocopos,major
 picchi,Picchio nero,Dryocopus,martius
-picchi,Picchio muratore,Sitta,europaea
 picchi,Picchio rosso minore,Dryobates,minor
 cince,Cinciarella,Cyanistes,caeruleus
 cince,Cinciallegra,Parus,major
@@ -38,7 +37,7 @@ silvidiCanneto,Usignolo di fiume,Cettia,cetti
 silvidiCanneto,Beccamoschino,Cisticola,juncidis
 silvidiCanneto,Cannaiola,Acrocephalus,scirpaceus
 silvidiCanneto,Cannaiola verdognola,Acrocephalus,palustris
-silvidiCanneto,Cannareccione,Acrocephalus,arundinaceu
+silvidiCanneto,Cannareccione,Acrocephalus,arundinaceus
 Luì,Luì piccolo,Phylloscopus,collybita
 Luì,Luì grosso,Phylloscopus,trochilus
 Luì,Luì verde,Phylloscopus,sibilatrix
@@ -52,6 +51,7 @@ silvidiMosche,Pigliamosche,Muscicapa,striata
 creepers,Picchio muratore,Sitta,europaea
 creepers,Rampichino comune,Certhia,brachydactyla
 creepers,Rampichino alpestre,Certhia,familiaris
+creepers,Picchio muraiolo,Tichodroma,muraria
 creepers,Torcicollo,Jynx,torquilla
 shrikes,Averla piccola,Lanius,collurio
 shrikes,Averla maggiore,Lanius,excubitor
@@ -70,7 +70,7 @@ crowsBig,Cornacchia nera,Corvus,corone
 starlings,Storno comune,Sturnus,vulgaris
 starlings,Storno nero,Sturnus,unicolor
 starlings,Storno roseo,Pastor,roseus
-starlings,Passero solitario,Monticola.,solitarius
+starlings,Passero solitario,Monticola,solitarius
 sparrows,Passera europea,Passer,domesticus
 sparrows,Passera d Italia,Passer,italiae
 sparrows,Passera mattugia,Passer,montanus

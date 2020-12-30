@@ -8,9 +8,12 @@ ui = function() {
       
       fluidRow(
         tabsetPanel( id = 'ciao',
-          tabPanel("Guess the bird", 
+                     
+          ### FIRST PANEL: FAMILY QUIZ
+          tabPanel("Grouped quiz", 
                    sidebarLayout(
                      sidebarPanel(
+                       textOutput('attenzione'),
                        selectInput("family", label = h3("Family"),
                                    c("Picchi" = "picchi",
                                      "Cince" = "cince",
@@ -55,29 +58,33 @@ ui = function() {
                      actionButton('shw', 'Show')
                    )),
           
-          tabPanel("Learn 1 bird",
+          ##### SECOND PANEL: SELECTABLE SPECIES
+          tabPanel("Choose quiz", 
                    sidebarLayout(
                      sidebarPanel(
-                       uiOutput("FirstChoice"),
-                       selectInput("type_learn", label = h3("Sound type"),
+                       textOutput('attenzione_choose'),
+                       uiOutput("FirstChoice_choose"),
+                       selectInput("type_choose", label = h3("Sound type"),
                                    c("Song" = 1,
                                      "Call" = 2,
                                      "Any" = 3)),
-                       actionButton("run_learn", "Download")
+                       actionButton("run_choose", "Download"),
+                       width = 11
                      ),
                      
                      mainPanel(
-                       span(textOutput("ready_learn"), style="color:red; font-size: 30px"),
-                       span(textOutput("solution_learn"), style="color:blue; font-size: 20px")
+                       span(textOutput("ready_choose"), style="color:red; font-size: 30px"),
+                       uiOutput("audio_choose"),
+                       actionButton("nxt_choose", "Next"),
+                       actionButton('shw_choose', 'Show'),
+                       span(textOutput("solution_choose"), style="color:black; font-size: 30px")
                      )
-                   ),
-                   
-                   mainPanel(
-                     uiOutput("audio_learn"),
-                     actionButton("nxt_learn", "Next"),
-                     actionButton('shw_learn', 'Show')                   )
                    )
+            )
+          
         )
+        
+        
       )
       
     )

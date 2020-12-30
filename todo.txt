@@ -1,0 +1,4 @@
+TODO app
+- crash if press "next" before dowload
+- tab 2: all, clickare tutto
+- RINNO

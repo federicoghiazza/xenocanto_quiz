@@ -7,6 +7,10 @@ server <- function(input, output) {
   j = NULL
   
   ###### all events of tab 1 - QUIZ
+  output$attenzione <- renderText('Seleziona il gruppo da inserire nel quiz e premi "Download".
+                                  Dopodichè premi "Next" ogni volta che vuoi ascoltare un nuovo file audio, 
+                                  e "Show" per vedere la soluzione.')
+  
   observeEvent(input$run, {
     selected_family = input$family
     type = input$type
@@ -21,7 +25,7 @@ server <- function(input, output) {
       specie=families$specie[i]
       call = GET(paste0("https://www.xeno-canto.org/api/2/recordings?query=", genus, "+", specie))
       dd = data.frame(fromJSON(rawToChar(call$content)))
-      df = rbind(df, dd[1:100,c(6,7,11,16,18)])
+      df = rbind(df, dd[sample(dim(dd)[1], min(100,dim(dd)[1])),c(6,7,11,16,18)])
     }
     remove_modal_spinner()
     
@@ -54,57 +58,74 @@ server <- function(input, output) {
     output$solution <- renderText(paste0('The audio refers to ', df3$nome[i],'. The record type is ', df3$recordings.type[i]))
   })
   
-  ###### all events of tab 2 - LEARN
+  ###### all events of tab 2 - random choice
   
-  output$FirstChoice <- renderUI ({ 
-    selectInput(inputId = "specie_learn",label = "Specie",
-                choices = sort(unlist(lapply(1:dim(families)[1], FUN = function(x) {families$nome[x]})))
+  output$attenzione_choose <- renderText('Seleziona le specie da inserire nel quiz e premi "Download". 
+                                  Servono alcuni secondi a specie per preparare i dati, quindi se ne selezioni tante
+                                  (o tutte) preparati ad aspettare qualche minuto (circa 7 se selezionate tutte, altrimenti
+                                  son circa 3 secondi a specie).
+                                  Dopodichè premi "Next" ogni volta che vuoi ascoltare un nuovo file audio, 
+                                  e "Show" per vedere la soluzione.')
+  
+  output$FirstChoice_choose <- renderUI ({ 
+    checkboxGroupInput(inputId = "quiz_choice",label = h3("Select specieS"), inline = TRUE,
+                choices = c('TUTTI', sort(unlist(lapply(1:dim(families)[1], FUN = function(x) {families$nome[x]}))))
     )
   })
   
-  observeEvent(input$run_learn, {
-    selected_specie = input$specie_learn
-    type_learn = input$type_learn
+  observeEvent(input$run_choose, {
+    selection = input$quiz_choice
+    if (selection == 'TUTTI') {
+      selected_species = sort(unlist(lapply(1:dim(families)[1], FUN = function(x) {families$nome[x]})))
+    }
+    else {
+      selected_species = selection
+    }
+    type_choose = input$type_choose
     
     show_modal_spinner(
-      spin = 'trinity-rings',
+      spin = 'fingerprint',
       text = 'Please wait...'
     )
-    genus=families$genus[which(families$nome == selected_specie)]
-    specie=families$specie[which(families$nome == selected_specie)]
-    call = GET(paste0("https://www.xeno-canto.org/api/2/recordings?query=", genus, "+", specie))
-    df_learn = data.frame(fromJSON(rawToChar(call$content)))
+    df_choose = NULL
+    for(selected_specie in selected_species) {
+      genus=families$genus[which(families$nome == selected_specie)]
+      specie=families$specie[which(families$nome == selected_specie)]
+      call = GET(paste0("https://www.xeno-canto.org/api/2/recordings?query=", genus, "+", specie))
+      dd = data.frame(fromJSON(rawToChar(call$content)))
+      df_choose = rbind(df_choose, dd[sample(dim(dd)[1], min(100,dim(dd)[1])),c(6,7,11,16,18)])
+    }
     remove_modal_spinner()
-    
-
-    df_learn = df_learn %>% 
+  
+    df_choose = df_choose %>% 
       rowwise() %>% 
       mutate(call = grepl('call', recordings.type),
              song = grepl('song', recordings.type)) 
     
-    if(type_learn == 1) {
-      df2_learn = df_learn[which(!df_learn$call & df_learn$song ),]
-    } else if(type_learn == 2) {
-      df2_learn = df_learn[which(df_learn$call & !df_learn$song ),]
+    if(type_choose == 1) {
+      df2_choose = df_choose[which(!df_choose$call & df_choose$song ),]
+    } else if(type_choose == 2) {
+      df2_choose = df_choose[which(df_choose$call & !df_choose$song ),]
     }
     else {
-      df2_learn = df_learn
+      df2_choose = df_choose
     }
     
-    df3_learn <<- merge(df2_learn, families, by.x=c('recordings.gen', 'recordings.sp'), by.y=c('genus', 'specie'))
-    output$ready_learn <- renderText('READY!')
+    df3_choose <<- merge(df2_choose, families, by.x=c('recordings.gen', 'recordings.sp'), by.y=c('genus', 'specie'))
+    output$ready_choose <- renderText('READY!')
   })
   
-  observeEvent(input$nxt_learn, {
-    i <<- sample(1:dim(df3_learn)[1], 1)
-    output$audio_learn <- renderUI({
-      tags$audio(src = df3_learn$recordings.file[i], type = "audio/mp3", autoplay = TRUE, controls = TRUE)
+  observeEvent(input$nxt_choose, {
+    i <<- sample(1:dim(df3_choose)[1], 1)
+    output$audio_choose <- renderUI({
+      tags$audio(src = df3_choose$recordings.file[i], type = "audio/mp3", autoplay = TRUE, controls = TRUE)
     })
   })
   
-  observeEvent(input$shw_learn, {
-    output$solution_learn <- renderText(paste0(df3_learn$recordings.type[i]))
+  observeEvent(input$shw_choose, {
+    output$solution_choose <- renderText(paste0('The audio refers to ', df3_choose$nome[i],'. The record type is ', df3_choose$recordings.type[i]))
   })
-  
-  
+
 }
+
+ 
