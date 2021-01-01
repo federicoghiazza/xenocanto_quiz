@@ -1,7 +1,8 @@
-server <- function(input, output) {
+server <- function(input, output, session) {
   
   families = read_csv('/Users/fghiazza/Desktop/xenocanto_quiz/data/families.csv')
   df3 = NULL
+  df3_choose = NULL
   df4 = NULL
   i = NULL
   j = NULL
@@ -47,7 +48,14 @@ server <- function(input, output) {
     output$table <- renderTable(data.frame(chances = unique(df3$nome)))  
   })
   
+  i=NULL
   observeEvent(input$nxt, {
+    df0 <<-df3
+    if (is.null(df0)) {
+      showNotification("Premi download prima di ascoltare!", duration=0, type = "error")
+      return()
+    }
+    
     i <<- sample(1:dim(df3)[1], 1)
     output$audio <- renderUI({
       tags$audio(src = df3$recordings.file[i], type = "audio/mp3", autoplay = TRUE, controls = TRUE)
@@ -55,7 +63,12 @@ server <- function(input, output) {
   })
   
   observeEvent(input$shw, {
-    output$solution <- renderText(paste0('The audio refers to ', df3$nome[i],'. The record type is ', df3$recordings.type[i]))
+    if (is.null(i)) {
+      showNotification("Ascolta prima di guardare la soluzione", duration=0, type = "error")
+      return()
+    }
+    
+    output$solution <- renderText(paste0('La specie è: ', df3$nome[i],'. Il tipo di audio è: ', df3$recordings.type[i]))
   })
   
   ###### all events of tab 2 - random choice
@@ -67,21 +80,47 @@ server <- function(input, output) {
                                   Dopodichè premi "Next" ogni volta che vuoi ascoltare un nuovo file audio, 
                                   e "Show" per vedere la soluzione.')
   
+  selected = "Allocco"
+  
+  observeEvent(input$select_all, {
+    selected = sort(unlist(lapply(1:dim(families)[1], FUN = function(x) {families$nome[x]})))
+    output$FirstChoice_choose <- renderUI ({ 
+      checkboxGroupInput(inputId = "quiz_choice",label = h3("Select specieS"), inline = TRUE,
+                         choices = sort(unlist(lapply(1:dim(families)[1], FUN = function(x) {families$nome[x]}))),
+                         selected = selected
+      )
+    })
+  })
+  
+  observeEvent(input$deselect_all, {
+    output$FirstChoice_choose <- renderUI ({ 
+      checkboxGroupInput(inputId = "quiz_choice",label = h3("Select specieS"), inline = TRUE,
+                         choices = sort(unlist(lapply(1:dim(families)[1], FUN = function(x) {families$nome[x]}))),
+                         selected = "Allocco"
+      )
+    })
+  })
+  
   output$FirstChoice_choose <- renderUI ({ 
     checkboxGroupInput(inputId = "quiz_choice",label = h3("Select specieS"), inline = TRUE,
-                choices = c('TUTTI', sort(unlist(lapply(1:dim(families)[1], FUN = function(x) {families$nome[x]}))))
+                       choices = sort(unlist(lapply(1:dim(families)[1], FUN = function(x) {families$nome[x]}))),
+                       selected = selected
     )
   })
   
+  
+
+  
   observeEvent(input$run_choose, {
-    selection = input$quiz_choice
-    if (selection == 'TUTTI') {
-      selected_species = sort(unlist(lapply(1:dim(families)[1], FUN = function(x) {families$nome[x]})))
-    }
-    else {
-      selected_species = selection
-    }
+    
+    selected_species = input$quiz_choice
     type_choose = input$type_choose
+    
+    if (is.null(selected_species)) {
+      showNotification("Seleziona almeno una specie!", duration=0, type = "error")
+      return()
+    }
+    # Save the ID for removal later
     
     show_modal_spinner(
       spin = 'fingerprint',
@@ -116,6 +155,11 @@ server <- function(input, output) {
   })
   
   observeEvent(input$nxt_choose, {
+    if (is.null(df3_choose)) {
+      showNotification("Premi download prima di ascoltare!", duration=0, type = "error")
+      return()
+    }
+
     i <<- sample(1:dim(df3_choose)[1], 1)
     output$audio_choose <- renderUI({
       tags$audio(src = df3_choose$recordings.file[i], type = "audio/mp3", autoplay = TRUE, controls = TRUE)
@@ -123,7 +167,12 @@ server <- function(input, output) {
   })
   
   observeEvent(input$shw_choose, {
-    output$solution_choose <- renderText(paste0('The audio refers to ', df3_choose$nome[i],'. The record type is ', df3_choose$recordings.type[i]))
+    if (is.null(i)) {
+      showNotification("Ascolta prima di guardare la soluzione", duration=0, type = "error")
+      return()
+    }
+    
+    output$solution_choose <- renderText(paste0('La specie è: ', df3_choose$nome[i],'. Il tipo di audio è: ', df3_choose$recordings.type[i]))
   })
 
 }

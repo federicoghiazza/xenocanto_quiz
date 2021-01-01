@@ -2,6 +2,19 @@ ui = function() {
   return (
     fluidPage(
       
+      tags$head(
+        tags$style(
+          HTML(".shiny-notification {
+             position:fixed;
+             top: calc(40%);
+             left: calc(30%);
+             font-size: 30px
+             }
+             "
+          )
+        )
+      ),
+      
       setBackgroundImage(
         src = "http://pngimg.com/uploads/birds/birds_PNG71.png"
       ),
@@ -14,7 +27,7 @@ ui = function() {
                    sidebarLayout(
                      sidebarPanel(
                        textOutput('attenzione'),
-                       selectInput("family", label = h3("Family"),
+                       selectInput("family", label = h3("Bird group"),
                                    c("Picchi" = "picchi",
                                      "Cince" = "cince",
                                      "Cince codalunga" = "cince2",
@@ -63,6 +76,8 @@ ui = function() {
                    sidebarLayout(
                      sidebarPanel(
                        textOutput('attenzione_choose'),
+                       actionButton("select_all", "Select all"),
+                       actionButton("deselect_all", "Deselect all"),
                        uiOutput("FirstChoice_choose"),
                        selectInput("type_choose", label = h3("Sound type"),
                                    c("Song" = 1,
