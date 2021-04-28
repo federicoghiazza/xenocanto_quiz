@@ -1,6 +1,6 @@
 server <- function(input, output, session) {
   
-  families = read_csv('/Users/fghiazza/Desktop/xenocanto_quiz/data/families.csv')
+  families = read_csv('data/families.csv')
   df3 = NULL
   df3_choose = NULL
   df4 = NULL
@@ -26,7 +26,8 @@ server <- function(input, output, session) {
       specie=families$specie[i]
       call = GET(paste0("https://www.xeno-canto.org/api/2/recordings?query=", genus, "+", specie))
       dd = data.frame(fromJSON(rawToChar(call$content)))
-      df = rbind(df, dd[sample(dim(dd)[1], min(100,dim(dd)[1])),c(6,7,11,16,18)])
+      dd = dd[dd$recordings.q == 'A',]
+      df = rbind(df, dd[sample(dim(dd)[1], min(100,dim(dd)[1])),c(6,7,11,16,18,24,25,27)])
     }
     remove_modal_spinner()
     
@@ -35,17 +36,20 @@ server <- function(input, output, session) {
       mutate(call = grepl('call', recordings.type),
              song = grepl('song', recordings.type)) 
     
-    if(type == 1) {
-      df2 = df[which(!df$call & df$song ),]
-    } else if(type == 2) {
-      df2 = df[which(df$call & !df$song ),]
+    if(type == 2) {
+      df2 = df[which(df$song ),]
+    } else if(type == 3) {
+      df2 = df[which(df$call),]
     }
     else {
       df2 = df
     }
     
     df3 <<- merge(df2, families, by.x=c('recordings.gen', 'recordings.sp'), by.y=c('genus', 'specie'))
-    output$table <- renderTable(data.frame(chances = unique(df3$nome)))  
+    chances = df3 %>% 
+      group_by(nome) %>% 
+      summarise(numero_oss = n())
+    output$table <- renderTable(chances)  
   })
   
   i=NULL
@@ -68,7 +72,12 @@ server <- function(input, output, session) {
       return()
     }
     
-    output$solution <- renderText(paste0('La specie è: ', df3$nome[i],'. Il tipo di audio è: ', df3$recordings.type[i]))
+    output$solution <- renderText(paste0('La specie è: ', df3$nome[i],
+                                         '. Il tipo di audio è: ', df3$recordings.type[i], 
+                                         '. Data: ', df3$recordings.date[i],
+                                         '. Ora: ', df3$recordings.time[i],
+                                         '. Altri suoni: ', df3$recording.also[i],
+                                         '. Country: ', df3$recordings.cnt[i]))
   })
   
   ###### all events of tab 2 - random choice
@@ -79,8 +88,6 @@ server <- function(input, output, session) {
                                   son circa 3 secondi a specie).
                                   Dopodichè premi "Next" ogni volta che vuoi ascoltare un nuovo file audio, 
                                   e "Show" per vedere la soluzione.')
-  
-  selected = "Allocco"
   
   observeEvent(input$select_all, {
     selected = sort(unlist(lapply(1:dim(families)[1], FUN = function(x) {families$nome[x]})))
@@ -95,16 +102,14 @@ server <- function(input, output, session) {
   observeEvent(input$deselect_all, {
     output$FirstChoice_choose <- renderUI ({ 
       checkboxGroupInput(inputId = "quiz_choice",label = h3("Select specieS"), inline = TRUE,
-                         choices = sort(unlist(lapply(1:dim(families)[1], FUN = function(x) {families$nome[x]}))),
-                         selected = "Allocco"
+                         choices = sort(unlist(lapply(1:dim(families)[1], FUN = function(x) {families$nome[x]})))
       )
     })
   })
   
   output$FirstChoice_choose <- renderUI ({ 
     checkboxGroupInput(inputId = "quiz_choice",label = h3("Select specieS"), inline = TRUE,
-                       choices = sort(unlist(lapply(1:dim(families)[1], FUN = function(x) {families$nome[x]}))),
-                       selected = selected
+                       choices = sort(unlist(lapply(1:dim(families)[1], FUN = function(x) {families$nome[x]})))
     )
   })
   
@@ -141,10 +146,10 @@ server <- function(input, output, session) {
       mutate(call = grepl('call', recordings.type),
              song = grepl('song', recordings.type)) 
     
-    if(type_choose == 1) {
-      df2_choose = df_choose[which(!df_choose$call & df_choose$song ),]
-    } else if(type_choose == 2) {
-      df2_choose = df_choose[which(df_choose$call & !df_choose$song ),]
+    if(type_choose == 2) {
+      df2_choose = df_choose[which(df_choose$song ),]
+    } else if(type_choose == 3) {
+      df2_choose = df_choose[which(df_choose$call),]
     }
     else {
       df2_choose = df_choose
@@ -172,7 +177,12 @@ server <- function(input, output, session) {
       return()
     }
     
-    output$solution_choose <- renderText(paste0('La specie è: ', df3_choose$nome[i],'. Il tipo di audio è: ', df3_choose$recordings.type[i]))
+    output$solution_choose <- renderText(paste0('La specie è: ', df3$nome[i],
+                                                '. Il tipo di audio è: ', df3$recordings.type[i], 
+                                                '. Data: ', df3$recordings.date[i],
+                                                '. Ora: ', df3$recordings.time[i],
+                                                '. Altri suoni: ', df3$recording.also[i],
+                                                '. Country: ', df3$recordings.cnt[i]))
   })
 
 }

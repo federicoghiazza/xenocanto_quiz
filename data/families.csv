@@ -25,6 +25,7 @@ thrushesBig,Tordo sassello,Turdus,iliacus
 thrushesBig,Tordela,Turdus,viscivorus
 thrushesBig,Cesena,Turdus,pilaris
 thrushesBig,Merlo,Turdus,merula
+thrushesBig,Merlo dal collare,Turdus,torquatus
 thrushesBig,Codirossone,Monticola,saxatilis
 silvidi,Beccafico,Sylvia,borin
 silvidi,Capinera,Sylvia,atricapilla
@@ -38,13 +39,15 @@ silvidiCanneto,Beccamoschino,Cisticola,juncidis
 silvidiCanneto,Cannaiola,Acrocephalus,scirpaceus
 silvidiCanneto,Cannaiola verdognola,Acrocephalus,palustris
 silvidiCanneto,Cannareccione,Acrocephalus,arundinaceus
+silvidiCanneto,Forapaglie comune,Acrocephalus,schoenobaenus
+silvidiCanneto,Forapaglie castagnolo,Acrocephalus,melanopogon
 Luì,Luì piccolo,Phylloscopus,collybita
 Luì,Luì grosso,Phylloscopus,trochilus
 Luì,Luì verde,Phylloscopus,sibilatrix
 Luì,Luì bianco,Phylloscopus,bonelli
 Luì,Luì forestiero,Phylloscopus,inornatus
-silvidiMosche,regolo,Regulus,regulus
-silvidiMosche,fiorrancino,Regulus,ignicapilla
+silvidiMosche,Regolo,Regulus,regulus
+silvidiMosche,Fiorrancino,Regulus,ignicapilla
 silvidiMosche,Balia nera,Ficedula,hypoleuca
 silvidiMosche,Balia dal collare,Ficedula,albicollis
 silvidiMosche,Pigliamosche,Muscicapa,striata
@@ -92,6 +95,7 @@ buntings,Migliarino di palude,Emberiza,schoeniclus
 buntings,Zigolo giallo,Emberiza,citrinella
 buntings,Zigolo nero,Emberiza,cirlus
 buntings,Zigolo muciatto,Emberiza,cia
+buntings,Zigolo della Lapponia,Calcarius,lapponicus
 buntings,Strillozzo,Emberiza,calandra
 buntings,Ortolano,Emberiza,hortulana
 accentors,Passera scopaiola,Prunella,modularis

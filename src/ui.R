@@ -53,9 +53,9 @@ ui = function() {
                                      "Rapaci notturni" = "rapaci_notturni"
                                    )),
                        selectInput("type", label = h3("Sound type"),
-                                   c("Song" = 1,
-                                     "Call" = 2,
-                                     "Any" = 3)),
+                                   c("Any" = 1,
+                                     "Song" = 2,
+                                     "Call" = 3)),
                        actionButton("run", "Download")
                      ),
                      
@@ -80,9 +80,9 @@ ui = function() {
                        actionButton("deselect_all", "Deselect all"),
                        uiOutput("FirstChoice_choose"),
                        selectInput("type_choose", label = h3("Sound type"),
-                                   c("Song" = 1,
-                                     "Call" = 2,
-                                     "Any" = 3)),
+                                   c("Any" = 1,
+                                     "Song" = 2,
+                                     "Call" = 3)),
                        actionButton("run_choose", "Download"),
                        width = 11
                      ),
