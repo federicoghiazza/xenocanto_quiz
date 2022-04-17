@@ -1,6 +1,7 @@
 server <- function(input, output, session) {
   
   families = read_csv('data/families.csv')
+  families = read_csv('~/Desktop/xenocanto_quiz/data/families.csv')
   df3 = NULL
   df3_choose = NULL
   df4 = NULL
@@ -46,21 +47,27 @@ server <- function(input, output, session) {
     }
     
     df3 <<- merge(df2, families, by.x=c('recordings.gen', 'recordings.sp'), by.y=c('genus', 'specie'))
+    df3 <<- df3 %>% 
+      filter(family == selected_family)
+    
     chances = df3 %>% 
       group_by(nome) %>% 
       summarise(numero_oss = n())
+    
+    df3 <<- merge(df3, chances, on = 'nome')
+    
     output$table <- renderTable(chances)  
   })
   
   i=NULL
   observeEvent(input$nxt, {
-    df0 <<-df3
+    df0 <<- df3
     if (is.null(df0)) {
       showNotification("Premi download prima di ascoltare!", duration=0, type = "error")
       return()
     }
     
-    i <<- sample(1:dim(df3)[1], 1)
+    i <<- sample(1:dim(df3)[1], 1, prob = 1 / df3$numero_oss)
     output$audio <- renderUI({
       tags$audio(src = df3$recordings.file[i], type = "audio/mp3", autoplay = TRUE, controls = TRUE)
     })

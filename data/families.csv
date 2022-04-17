@@ -1,126 +1,49 @@
 family,nome,genus,specie
-picchi,Picchio cenerino,Picus,canus
-picchi,Picchio verde,Picus,viridis
-picchi,Picchio rosso maggiore,Dendrocopos,major
-picchi,Picchio nero,Dryocopus,martius
-picchi,Picchio rosso minore,Dryobates,minor
-cince,Cinciarella,Cyanistes,caeruleus
-cince,Cinciallegra,Parus,major
-cince,Cincia mora,Periparus,ater
-cince,Cincia alpestre,Poecile,montanus
-cince,Cincia bigia,Poecile,palustris
-cince,Cincia dal ciuffo,Lophophanes,cristatus
-cince2,Codibugnolo,Aegithalos,caudatus
-cince2,Pendolino,Remiz,pendulinus
 cince2,Basettino,Panurus,biarmicus
 thrushesSmall,Pettirosso,Erithacus,rubecula
 thrushesSmall,Usignolo,Luscinia,megarhynchos
 thrushesSmall,Codirosso comune,Phoenicurus,phoenicurus
-thrushesSmall,Codirosso spazzacamino,Phoenicurus,ochruros
-thrushesSmall,Stiaccino,Saxicola,rubetra
-thrushesSmall,Saltimpalo,Saxicola,torquatus 
 thrushesSmall,Culbianco,Oenanthe,oenanthe
-thrushesBig,Tordo bottaccio,Turdus,philomelos
-thrushesBig,Tordo sassello,Turdus,iliacus
-thrushesBig,Tordela,Turdus,viscivorus
-thrushesBig,Cesena,Turdus,pilaris
-thrushesBig,Merlo,Turdus,merula
 thrushesBig,Merlo dal collare,Turdus,torquatus
 thrushesBig,Codirossone,Monticola,saxatilis
 silvidi,Beccafico,Sylvia,borin
-silvidi,Capinera,Sylvia,atricapilla
 silvidi,Sterpazzola,Sylvia,communis
 silvidi,Bigiarella,Sylvia,curruca
 silvidi,Occhiocotto,Sylvia,melanocephala
 silvidi,Sterpazzolina,Sylvia,cantillans
 silvidi,Magnanina,Sylvia,undata
-silvidiCanneto,Usignolo di fiume,Cettia,cetti
-silvidiCanneto,Beccamoschino,Cisticola,juncidis
-silvidiCanneto,Cannaiola,Acrocephalus,scirpaceus
-silvidiCanneto,Cannaiola verdognola,Acrocephalus,palustris
-silvidiCanneto,Cannareccione,Acrocephalus,arundinaceus
-silvidiCanneto,Forapaglie comune,Acrocephalus,schoenobaenus
-silvidiCanneto,Forapaglie castagnolo,Acrocephalus,melanopogon
-Luì,Luì piccolo,Phylloscopus,collybita
 Luì,Luì grosso,Phylloscopus,trochilus
 Luì,Luì verde,Phylloscopus,sibilatrix
 Luì,Luì bianco,Phylloscopus,bonelli
 Luì,Luì forestiero,Phylloscopus,inornatus
-silvidiMosche,Regolo,Regulus,regulus
-silvidiMosche,Fiorrancino,Regulus,ignicapilla
 silvidiMosche,Balia nera,Ficedula,hypoleuca
 silvidiMosche,Balia dal collare,Ficedula,albicollis
 silvidiMosche,Pigliamosche,Muscicapa,striata
-creepers,Picchio muratore,Sitta,europaea
-creepers,Rampichino comune,Certhia,brachydactyla
 creepers,Rampichino alpestre,Certhia,familiaris
 creepers,Picchio muraiolo,Tichodroma,muraria
 creepers,Torcicollo,Jynx,torquilla
 shrikes,Averla piccola,Lanius,collurio
-shrikes,Averla maggiore,Lanius,excubitor
-shrikes,Averla capirossa,Lanius,senator
 shrikes,Averla cenerina,Lanius,minor
-crowsSmall,Gazza,pica,pica
-crowsSmall,Ghiandaia,Garrulus,glandarius
-crowsSmall,Nocciolaia,Nucifraga,caryocatactes
-crowsSmall,Taccola,Coloeus,monedula
-crowsBig,Graccio corallino,Pyrrhocorax,pyrrhocorax
-crowsBig,Gracchio alpino,Pyrrhocorax,graculus
-crowsBig,Corvo comune,Corvus,frugilegus
-crowsBig,Corvo imperiale,Corvus,corax
-crowsBig,Cornacchia grigia,Corvus,cornix
-crowsBig,Cornacchia nera,Corvus,corone
-starlings,Storno comune,Sturnus,vulgaris
-starlings,Storno nero,Sturnus,unicolor
-starlings,Storno roseo,Pastor,roseus
 starlings,Passero solitario,Monticola,solitarius
-sparrows,Passera europea,Passer,domesticus
-sparrows,Passera d Italia,Passer,italiae
-sparrows,Passera mattugia,Passer,montanus
-sparrows,Passera lagia,Petronia,petronia
-sparrows,Passera sarda,Passer,hispaniolensis
 sparrows,Fringuello alpino,Montifringilla,nivalis
-finches1,Fringuello,Fringilla,coelebs
-finches1,Peppola,Fringilla,montifringilla
-finches1,Fanello,Linaria,cannabina
-finches1,Organetto,Acanthis,flammea 
-finches1,Cardellino,Carduelis,carduelis
-finches2,Verdone,Chloris,chloris
-finches2,Lucherino,Spinus,spinus
-finches2,Verzellino,Serinus,serinus
-finches2,Ciuffolotto,Pyrrhula,pyrrhula
-finches2,Frosone,Coccothraustes,coccothraustes
-finches2,Crociere,Loxia,curvirostra
-buntings,Migliarino di palude,Emberiza,schoeniclus
-buntings,Zigolo giallo,Emberiza,citrinella
+finches,Organetto,Acanthis,flammea 
+finches,Verdone,Chloris,chloris
+finches,Verzellino,Serinus,serinus
+finches,Ciuffolotto,Pyrrhula,pyrrhula
+finches,Frosone,Coccothraustes,coccothraustes
+finches,Crociere,Loxia,curvirostra
 buntings,Zigolo nero,Emberiza,cirlus
 buntings,Zigolo muciatto,Emberiza,cia
 buntings,Zigolo della Lapponia,Calcarius,lapponicus
-buntings,Strillozzo,Emberiza,calandra
 buntings,Ortolano,Emberiza,hortulana
-accentors,Passera scopaiola,Prunella,modularis
 accentors,Sordone,Prunella,collaris
 accentors,Merlo acquaiolo,Cinclus,cinclus
-accentors,Scricciolo,Troglodytes,troglodytes
 accentors,Upupa,Upupa,epops
 accentors,Gruccione,Merops,apiaster
 accentors,Ghiandaia marina,Coracias,garrulus 
 pipits,Calandro,Anthus,campestris
-pipits,Calandro maggiore,Anthus,richardi
-pipits,Spioncello,Anthus,spinoletta
-pipits,Pispola,Anthus,pratensis
 pipits,Prispolone,Anthus,trivialis
 pipits,Cutrettola,Motacilla,flava
-pipits,Ballerina bianca,Motacilla,alba
-pipits,Ballerina gialla,Motacilla,cinerea
-swallows,Topino,Riparia,riparia
-swallows,Rondine comune,Hirundo,rustica
-swallows,Rondine montana,Ptyonoprogne,rupestris
-swallows,Balestruccio,Delichon,urbicum
-larks,Allodola,Alauda,arvensis
-larks,Tottavilla,Lullula,arborea
-larks,Cappellaccia,Galerida,cristata
-larks,Calandrella,Calandrella,brachydactyla
 rapaci_notturni,Civetta,Athene,noctua
 rapaci_notturni,Civetta nana,Glaucidium,passerinum
 rapaci_notturni,Civetta capogrosso,Aegolius,funereus
@@ -129,3 +52,78 @@ rapaci_notturni,Gufo comune,Asio,otus
 rapaci_notturni,Gufo reale,Bubo,bubo
 rapaci_notturni,Barbagianni,Tyto,alba
 rapaci_notturni,Gufo di palude,Asio,flammeus
+nel_canneto_in_primavera,Cannaiola,Acrocephalus,scirpaceus
+nel_canneto_in_primavera,Cannaiola verdognola,Acrocephalus,palustris
+nel_canneto_in_primavera,Cannareccione,Acrocephalus,arundinaceus
+nel_canneto_in_primavera,Forapaglie comune,Acrocephalus,schoenobaenus
+nel_canneto_in_primavera,Forapaglie castagnolo,Acrocephalus,melanopogon
+nel_canneto_in_primavera,Forapaglie macchiettato,Locustella,naevia
+nel_canneto_in_primavera,Salciaiola,Locustella,luscinioides
+nel_canneto_in_primavera,Usignolo di fiume,Cettia,cetti
+pianura_novarese_inverno,Allodola,Alauda,arvensi
+pianura_novarese_inverno,Tottavilla,Lullula,arborea
+pianura_novarese_inverno,Ballerina bianca,Motacilla,alba
+pianura_novarese_inverno,Ballerina gialla,Motacilla,cinerea
+pianura_novarese_inverno,Calandro maggiore,Anthus,richardi
+pianura_novarese_inverno,Spioncello,Anthus,spinoletta
+pianura_novarese_inverno,Pispola,Anthus,pratensis
+pianura_novarese_inverno,Scricciolo,Troglodytes,troglodytes
+pianura_novarese_inverno,Passera scopaiola,Prunella,modularis
+pianura_novarese_inverno,Migliarino di palude,Emberiza,schoeniclus
+pianura_novarese_inverno,Zigolo giallo,Emberiza,citrinella
+pianura_novarese_inverno,Fringuello,Fringilla,coelebs
+pianura_novarese_inverno,Peppola,Fringilla,montifringilla
+pianura_novarese_inverno,Fanello,Linaria,cannabina
+pianura_novarese_inverno,Lucherino,Spinus,spinus
+pianura_novarese_inverno,Cardellino,Carduelis,carduelis
+pianura_novarese_inverno,Passera europea,Passer,domesticus
+pianura_novarese_inverno,Passera d Italia,Passer,italiae
+pianura_novarese_inverno,Passera mattugia,Passer,montanus
+pianura_novarese_inverno,Storno comune,Sturnus,vulgaris
+pianura_novarese_inverno,Cornacchia grigia,Corvus,cornix
+pianura_novarese_inverno,Gazza,pica,pica
+pianura_novarese_inverno,Ghiandaia,Garrulus,glandarius
+pianura_novarese_inverno,Taccola,Coloeus,monedula
+pianura_novarese_inverno,Averla maggiore,Lanius,excubitor
+pianura_novarese_inverno,Picchio muratore,Sitta,europaea
+pianura_novarese_inverno,Rampichino comune,Certhia,brachydactyla
+pianura_novarese_inverno,Regolo,Regulus,regulus
+pianura_novarese_inverno,Fiorrancino,Regulus,ignicapilla
+pianura_novarese_inverno,Luì piccolo,Phylloscopus,collybita
+pianura_novarese_inverno,Capinera,Sylvia,atricapilla
+pianura_novarese_inverno,Tordo bottaccio,Turdus,philomelos
+pianura_novarese_inverno,Tordo sassello,Turdus,iliacus
+pianura_novarese_inverno,Tordela,Turdus,viscivorus
+pianura_novarese_inverno,Cesena,Turdus,pilaris
+pianura_novarese_inverno,Merlo,Turdus,merula
+pianura_novarese_inverno,Codirosso spazzacamino,Phoenicurus,ochruros
+pianura_novarese_inverno,Saltimpalo,Saxicola,torquatus 
+pianura_novarese_inverno,Picchio verde,Picus,viridis
+pianura_novarese_inverno,Picchio rosso maggiore,Dendrocopos,major
+pianura_novarese_inverno,Picchio nero,Dryocopus,martius
+pianura_novarese_inverno,Picchio rosso minore,Dryobates,minor
+pianura_novarese_inverno,Cinciarella,Cyanistes,caeruleus
+pianura_novarese_inverno,Cinciallegra,Parus,major
+pianura_novarese_inverno,Cincia mora,Periparus,ater
+pianura_novarese_inverno,Cincia bigia,Poecile,palustris
+pianura_novarese_inverno,Codibugnolo,Aegithalos,caudatus
+pianura_novarese_inverno,Pendolino,Remiz,pendulinus
+modica_maggio,Passera lagia,Petronia,petronia
+modica_maggio,Averla capirossa,Lanius,senator
+modica_maggio,Tottavilla,Lullula,arborea
+modica_maggio,Strillozzo,Emberiza,calandra
+modica_maggio,Cinciarella,Cyanistes,caeruleus
+modica_maggio,Upupa,Upupa,epops
+modica_maggio,Occhione,Burhinus,oedicnemus
+modica_maggio,Storno nero,Sturnus,unicolor
+modica_maggio,Fringuello,Fringilla,coelebs
+modica_maggio,Cappellaccia,Galerida,cristata
+modica_maggio,Beccamoschino,Cisticola,juncidis
+modica_maggio,Passero solitario,Monticola,solitarius
+modica_maggio,Usignolo di fiume,Cettia,cetti
+modica_maggio,Capinera,Sylvia,atricapilla
+modica_maggio,Pigliamosche pettirosso,Ficedula,parva
+modica_maggio,Gruccione,Merops,apiaster
+modica_maggio,Pendolino,Remiz,pendulinus
+modica_maggio,Sterpazzolina,Sylvia,cantillans
+modica_maggio,Canapino maggiore,Hippolais,icterina
